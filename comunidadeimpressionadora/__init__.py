@@ -12,7 +12,8 @@ app.config['SECRET_KEY'] = '19b253df6e070936e5e83ba04d6e04c7'
 if os.getenv("DATABASE_URL"):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/comunidade.db'
+    print('Passei aqui')
 
 database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
