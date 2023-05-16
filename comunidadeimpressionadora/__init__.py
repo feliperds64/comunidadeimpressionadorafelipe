@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = '19b253df6e070936e5e83ba04d6e04c7'
 if os.getenv("DATABASE_URL"):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'Heroku_Database_URL'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://comunidadeimpressionadora:OqCwB30dzmso5l2hIyfasuuTDuOnReAQ@dpg-chhah9u4dad31tjuoncg-a/comunidadeimpressionadora'    
 
 database = SQLAlchemy(app)
@@ -23,7 +23,7 @@ login_manager.login_message = 'Faça o login para ter acesso'
 login_manager.login_message_category = 'alert-info'
 
 from comunidadeimpressionadora import models
-engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+engine = sqlalchemy.create_engine('sqlite:///instance/comunidade.db')
 inspect = sqlalchemy.inspect(engine)
 if not inspect.has_table("usuario"):
     with app.app_context():
