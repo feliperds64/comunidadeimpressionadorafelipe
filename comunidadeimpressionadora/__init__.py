@@ -23,7 +23,7 @@ login_manager.login_message = 'Faça o login para ter acesso'
 login_manager.login_message_category = 'alert-info'
 
 from comunidadeimpressionadora import models
-engine = sqlalchemy.create_engine('sqlite:///instance/comunidade.db')
+engine = sqlalchemy.create_engine('sqlite:///comunidade.db')
 inspect = sqlalchemy.inspect(engine)
 if not inspect.has_table("usuario"):
     with app.app_context():
