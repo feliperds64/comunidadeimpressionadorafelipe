@@ -33,5 +33,6 @@ if not inspect.has_table("usuario"):
 else:
     print("Base de dados já existente")
 print(app.config['SQLALCHEMY_DATABASE_URI'])
+print(os.getenv("DATABASE_URL"))
 
 from comunidadeimpressionadora import routes
