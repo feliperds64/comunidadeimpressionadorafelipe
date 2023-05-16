@@ -8,11 +8,11 @@ import sqlalchemy
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '19b253df6e070936e5e83ba04d6e04c7'
-if os.getenv("DATABASE_URL"):
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/comunidade.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://comunidadeimpressionadora:OqCwB30dzmso5l2hIyfasuuTDuOnReAQ@dpg-chhah9u4dad31tjuoncg-a/comunidadeimpressionadora'    
+#if os.getenv("DATABASE_URL"):
+#    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+#else:
+#    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/comunidade.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://comunidadeimpressionadora:OqCwB30dzmso5l2hIyfasuuTDuOnReAQ@dpg-chhah9u4dad31tjuoncg-a/comunidadeimpressionadora'    
 
 database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -32,7 +32,7 @@ from comunidadeimpressionadora import models
 #        print("Deu ruim no BD")
 #else:
 #    print("Base de dados já existente")
-print(app.config['SQLALCHEMY_DATABASE_URI'])
+#print(app.config['SQLALCHEMY_DATABASE_URI'])
 #print(os.getenv("DATABASE_URL"))
 
 from comunidadeimpressionadora import routes
