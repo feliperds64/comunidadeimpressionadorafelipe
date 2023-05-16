@@ -29,6 +29,7 @@ if not inspect.has_table("usuario"):
         database.drop_all()
         database.create_all()
         print("Base de dados criada")
+        print(app.config['SQLALCHEMY_DATABASE_URI'])
 else:
     print("Base de dados já existente")
     
